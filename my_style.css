@@ -25,6 +25,7 @@ a:active{
     text-align: center;
     padding: 0.4% 0.6%;
     background-color:lavender;
+    background-image: none;
     font-size:100%;
     align-items: center;
 }
