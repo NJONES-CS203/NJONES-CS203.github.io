@@ -1,11 +1,11 @@
 /* LINKS */
 a:link{
     color: blue;
-    text-decoration: underline;
+    text-decoration: none;
 }
 a:visited{
     color: blueviolet;
-    text-decoration: underline;
+    text-decoration: none;
 }
 a:hover{
     color: orchid;
@@ -15,7 +15,44 @@ a:active{
     color: green;
     text-decoration: none;
 }
-
+/* NAVIGATION MENU */
+nav{
+    overflow: hidden;
+    background-color: midnightblue;
+    color:aliceblue;
+}
+nav a{
+    float: left;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+}
+nav a:hover{
+    background-color:azure;
+    color:darkblue;
+}
+nav a.current{
+    background-color: blueviolet;
+    color: black;
+}
+/** SCROLL BAR **/
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+}
+/* Track */
+::-webkit-scrollbar-track {
+  background: lavender; 
+}
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: mediumpurple; 
+}
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: indigo; 
+}
 /* FOOTER */
 .Footer {
     position:sticky;
