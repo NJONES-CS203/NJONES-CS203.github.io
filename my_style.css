@@ -1,11 +1,11 @@
 /* LINKS */
 a:link{
-    color: blue;
-    text-decoration: underline;
+    color: aliceblue;
+    text-decoration: none;
 }
 a:visited{
-    color: blueviolet;
-    text-decoration: underline;
+    color: aliceblue;
+    text-decoration: none;
 }
 a:hover{
     color: orchid;
@@ -16,6 +16,26 @@ a:active{
     text-decoration: none;
 }
 
+/* NAVIGATION MENU */
+nav{
+    overflow: hidden;
+    background-color: midnightblue;
+}
+nav a{
+    float: left;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+}
+nav a:hover{
+    background-color:azure;
+    color:darkblue;
+}
+nav a.current{
+    background-color: deepskyblue;
+    color: black;
+}
 /* FOOTER */
 .Footer {
     position:sticky;
