@@ -18,7 +18,13 @@
     </nav>
     <div class="body_wrapper">
     <script src="1-marketplace.js"> </script>
+    
+    function Itemgroup(name, price, amount){
+        this.name= itemName;
+        this.price= itemPrice;
+        this.amount= numberOfItems;
 
+    }
     function Cart(){
         this.itemGroups = [];
         this.showTotalAmount = function(){
@@ -28,14 +34,11 @@
             // You must code this.
             document.write("<p>OUPS. YOU MUST CODE THIS.</p>")
             }
-        }
+        }            
     }
-    let Itemgroup = new Cart(name, price, amount){
-        this.name= itemName;
-        this.price= itemPrice;
-        this.amount= numberOfItems;
-
-    }
+    Cart.prototype.addItemGroup = function(input){
+        this.items.push(input):
+    };
 
     document.write("<h2> 1) Creating the cart </h2>")
     let my_cart = new Cart()
