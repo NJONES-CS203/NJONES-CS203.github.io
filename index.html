@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>LAB 5</title>
+        <title>LAB 7</title>
         <meta name="author" content="Natalya Jones">
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -20,7 +20,8 @@
             <a href="vacation01.html"> Vacation</a> 
             <a href="artist.html"> My self</a> 
             <a href="marketplace.html"> Marketplace</a> 
-            <a href="calculators.html"> Calculators</a>
+            <a href="2-my_calculators.html"> Calculators</a>
+            <a href="to-do.html"> To Do List</a>
         </nav>
 
         <div class="body_wrapper"> 
@@ -38,70 +39,97 @@
                 <li> After university, I do not know what job I will do
             </ul>
             </div>
+            <h2>&#x1f490 Important people and flowers &#x1f490 </h2> 
+            <div class="Slideshow"> <!-- Carousel images-->
+                <div class="Slideshow_img">
+                    <img src="Carousel_01.jpg" alt="01" width="100%">
+                </div>
+                <div class="Slideshow_img">
+                    <img src="Carousel_02.jpg" alt="02" width="100%">
+                </div>
+                <div class="Slideshow_img">
+                    <img src="Carousel_03.JPG" alt="03" width="100%">
+                </div>
+                <div class="Slideshow_img">
+                    <img src="Carousel_04.jpg" alt="04" width="100%">
+                </div>
+                <div class="Slideshow_img">
+                    <img src="Carousel_05.jpg" alt="05" width="100%">
+                </div>
+                <div class="Slideshow_img">
+                    <img src="Carousel_06.JPG" alt="06" width="100%">
+                </div>
+                <div class="Slideshow_img">
+                    <img src="Carousel_07.jpg" alt="07" width="100%">
+                </div>
+                <div class="Slideshow_img">
+                    <img src="Carousel_08.jpg" alt="08" width="100%">
+                </div>
+                <div class="Slideshow_img">
+                    <img src="Carousel_09.JPG" alt="09" width="100%">
+                </div>
+                <div class="Slideshow_img">
+                    <img src="Carousel_10.jpg" alt="10" width="100%">
+                </div>
+                <div class="Slideshow_img">
+                    <img src="Carousel_11.JPG" alt="11" width="100%">
+                </div>
+                <div class="Slideshow_img">
+                    <img src="Carousel_12.jpg" alt="12" width="100%">
+                </div>
+                <a href="#" id="prev" onclick="previous(); return false;"> BACK </a>
+                <a href="#" id="next" onclick="next();return false"> NEXT </a>
 
-            <div> <!-- table -->
-        <table>
-            <tr style="background-color: pink;"> 
-                <th>School Attended </th>
-                <th>Grade (if applicable) </th>
-                <th>Province </th>
-            </tr>
-            <tr>  
-                <td style="font-family: Arial, sans-serif; text-align: left;"> Connaught Street Elementary</td>
-                <td style="font-family: Arial, sans-serif;"> K-1 </td>
-                <td style="font-family: Arial, sans-serif;"> NB</td>
-            </tr>
-            <tr>  
-                <td style="text-align: left;"> Bayview Elementary</td>
-                <td> 2</td>
-                <td> NB</td> 
-            </tr>
-            <tr>  
-                <td style="text-align: left;"> Forest Hills </td>
-                <td> 3</td>
-                <td> NB</td>
-            </tr>
-            <tr>  
-                <td style="text-align: left;"> Lennoxville Elementary </td>
-                <td> 4-6</td>
-                <td> QC</td>
-            </tr>
-            <tr>  
-                <td style="text-align: left;"> Alexander Galt RHS </td>
-                <td> 7-11</td>
-                <td> QC</td>
-            </tr>
-            <tr>  
-                <td style="text-align: left;"> Champlain RC </td>
-                <td> 2020-24</td>
-                <td> QC</td>
-            </tr>
-            <tr>  
-                <td style="text-align: left";> Bishops University </td>
-                <td> 2024-current</td>
-                <td> QC</td>
-            </tr>
-        </table>
             </div>
 
             <br>
 
             <div> <!-- foods -->
-        <h2> What I brought to eat today </h2>
-        <dl>
-            <dt>- Breakfast foods </dt>
-                <dd>- Breakfast fruit bars </dd>
-                <dd>- Yogurt &amp strawberries </dd>
-            <dt>- Lunch foods </dt>
-                <dd>- Spaghetti </dd>
-                <dd>- Brownie </dd>
-            <dt>- Other snacks </dt>
-                <dd>- Juice </dd>
-                <dd>- Orange Brooksides </dd>
-            </div>
+            <h2> What I brought to eat today </h2>
+            <dl>
+                <dt>- Breakfast foods </dt>
+                    <dd>- Breakfast fruit bars </dd>
+                    <dd>- Cinamon roll </dd>
+                <dt>- Lunch foods </dt>
+                    <dd>- Freezer meal </dd>
+                    <dd>- Granola bar</dd>
+                <dt>- Other snacks </dt>
+                    <dd>- Cinnamon roll Oreos </dd>
+                    <dd>- Orange Brooksides </dd>
+                </div>
 
-            <br>
+                <br>
         </div>
+        <script>
+            let current_slide = 0;
+            
+            const slides = document.getElementsByClassName("Slideshow_img");
+            
+            function showSlide(n) {
+                for (let i=0; i < slides.length; i++){
+                    slides[i].style.display = "none";
+                }
+
+                if (n >= slides.length) current_slide = 0;
+                if (n < 0) current_slide = slides.length - 1;
+
+                slides[current_slide].style.display = "block";
+                }
+            
+
+            function next() {
+                //current_slide = (current_slide + 1) % slides.length;
+                current_slide++;
+                showSlide(current_slide);
+            }
+
+            function previous() {
+                //current_slide = (current_slide - 1 + slides.length) % slides.length;
+                current_slide--;
+                showSlide(current_slide);
+            }            
+            showSlide(current_slide);
+        </script>
         <div class="Footer">
             <p> Natalya's website for CSL203 </p>
         </div>
