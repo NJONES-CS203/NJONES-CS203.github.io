@@ -1,38 +1,49 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>LAB 3</title>
+        <title>LAB 4</title>
         <meta name="author" content="Natalya Jones">
         <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="my_style.css">
         <style>
             table, th, td {
                 border: 2px solid black;
                 border-collapse: collapse;
             }
-        </style>
-        <style>
             td {text-align: center;}
-        </style>
-        <style>
-            div {
+            #links {
                 background-color:azure;
                 border: 4px double black;
             }
         </style>
     </head>
     <body>
-    
-        <h1> Hi, my name is Natalya Jones</h1>
-        <h2> Facts about me</h2>
-        <ul>
-            <li> I am in my <strong>second</strong> year of computer science
-            <li> I was born in <em>Fredericton New Brunswick</em>
-            <li> My family moved to Sherbrooke in 2012 because my dad got a job at <b>Bishops</b>
-                <ul>
-                    <li> He teaches math
-                </ul>
-            <li> After university, I do not know what job I will do
-        </ul>
+        <nav>
+            <a class="current" href="index.html"> Home</a>
+            <a href="vacation01.html"> Vacation</a> 
+            <a href="artist.html"> My self</a> 
+            <a href="marketplace.html"> Marketplace</a> 
+            <a href="calculators.html"> Calculators</a>
+        </nav>
+
+        <div class="body_wrapper"> 
+                <h1> Hi, my name is Natalya Jones</h1>
+               <h2> Facts about me</h2>
+
+            <div> <!-- list -->
+            <ul>
+                <li> I am in my <strong>second</strong> year of computer science
+                <li> I was born in <em>Fredericton New Brunswick</em>
+                <li> My family moved to Sherbrooke in 2012 because my dad got a job at <b>Bishops</b>
+                    <ul>
+                        <li> He teaches math
+                    </ul>
+                <li> After university, I do not know what job I will do
+            </ul>
+            </div>
+
+            <div> <!-- table -->
         <table>
             <tr style="background-color: pink;"> 
                 <th>School Attended </th>
@@ -75,14 +86,11 @@
                 <td> QC</td>
             </tr>
         </table>
-        <hr>
-        Here &#8628; <br> 
-        <div> 
-            My <a href="vacation01.html"> summer</a> recap <br>
-            My <a href="artist.html"> artistic</a> self <br> 
-        </div>
-        is where the hyperlinks willl be 
-        <hr>
+            </div>
+
+            <br>
+
+            <div> <!-- foods -->
         <h2> What I brought to eat today </h2>
         <dl>
             <dt>- Breakfast foods </dt>
@@ -94,6 +102,13 @@
             <dt>- Other snacks </dt>
                 <dd>- Juice </dd>
                 <dd>- Orange Brooksides </dd>
-                
+            </div>
+
+            <br>
+        </div>
+        <div class="Footer">
+            <p> Natalya's website for CSL203 </p>
+        </div>
+        
     </body>
 </html>
