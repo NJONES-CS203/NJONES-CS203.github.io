@@ -18,7 +18,17 @@
         <a class="current" href="to-do.html"> To Do List</a>
     </nav>
     <div class="body_wrapper">
-
+        <form> 
+            <label for="item">To-Do List </label>
+            <input type="text" id="itemInput" name="Item">
+            <button type="submit"> Add to list </button>
+            <ul id="itemList"></ul>
+        </form>
+        <script>
+            addItem(){
+                const item = document.getElementById("itemInput").value;   
+            };
+        </script>
         
     </div>
     <div class="Footer">
