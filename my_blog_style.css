@@ -1,0 +1,33 @@
+/* STYLING FOR MY BLOG*/
+
+/* Making the hero section pretty */
+div.Hero_pic{
+    background-image: url('Images/IMG_6323.jpeg');
+    
+    height: 70%;
+
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    
+    padding: 200px 40px;
+    text-align: center;
+}
+
+/* Styling hero text */
+.HText_title{
+    position: relative;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 3rem;
+    margin: 0;
+    color:moccasin;
+}
+
+.HText_subtitle{
+    font-size: 2rem;
+    margin-top: 10px;
+    color: moccasin;
+}

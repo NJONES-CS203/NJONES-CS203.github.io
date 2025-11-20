@@ -17,12 +17,14 @@ a:active{
 }
 /* NAVIGATION MENU */
 nav{
-    overflow: hidden;
+    overflow: visible;
     background-color: midnightblue;
     color:aliceblue;
+    display: flex;
+    align-items: center;
 }
 nav a{
-    float: left;
+    /* float: left; */
     text-align: center;
     padding: 14px 16px;
     text-decoration: none;
@@ -36,6 +38,57 @@ nav a.current{
     background-color: blueviolet;
     color: black;
 }
+/* Wrap dropdown items */
+.dropdown {
+    /* float: left; */
+    overflow: visible;
+    position: relative; 
+}
+/* The button that triggers dropdown */
+.dropdown .dropbtn {
+    font-size: 17px;
+    border: none;
+    outline: none;
+    color: aliceblue;
+    padding: 14px 16px;
+    background-color: inherit;
+    border: none;
+    float: none;
+    font-family: inherit;
+    margin: 0;
+    cursor: pointer;
+}
+/* Dropdown content box */
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: midnightblue;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px rgba(0,0,0,0.3);
+    z-index: 1;
+}
+.dropdown:hover .dropbtn{
+    background-color: azure;
+    color: darkblue;
+}
+/* Links inside dropdown */
+.dropdown-content a {
+    float: none;
+    color: azure;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+}
+.dropdown-content a:hover {
+    background-color: azure;
+    color: darkblue;
+}
+/* Make the dropdown appear */
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
 /** SCROLL BAR **/
 /* width */
 ::-webkit-scrollbar {
