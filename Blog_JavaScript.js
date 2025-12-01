@@ -5,23 +5,31 @@ function DarkMode(){
 }
 
 //Read more/less
-function More_or_Less(){
-    var dots = document.getElementsByClassName("dots");
-    var moreText = document.getElementsByClassName("more");
-    var btnText = document.getElementsByClassName("ML_Btn");
 
-    if (dots.style.display === "none") {
-        dots.style.display = "inline";
-        btnText.innerHTML = "Read more <i class=fas fa-chevron-down></i>";
-        moreText.style.display = "none";
-    } 
-    else {
-        dots.style.display = "none";
-        btnText.innerHTML = "Read less <i class=fas fa-chevron-up></i> ";
-        moreText.style.display = "inline";
-    
-    }
-}
+document.addEventListener("click", function(e) {
+  const btn = e.target.closest(".Read-Toggle");
+  if (!btn) return;
+
+  const post = btn.closest(".Post");
+  if (!post) return;
+
+  const dots = post.querySelector(".Dots");
+  const moreText = post.querySelector(".More");
+  if (!dots || !moreText) return;
+
+  const isHidden = window.getComputedStyle(dots).display === "none";
+
+  if (isHidden) {
+    dots.style.display = "inline";
+    moreText.style.display = "none";
+    btn.innerHTML = 'Read more <i class="fa-solid fa-chevron-down"></i>';
+  } else {
+    dots.style.display = "none";
+    moreText.style.display = "inline";
+    btn.innerHTML = 'Read less <i class="fa-solid fa-chevron-up"></i>';
+  }
+});
+
 
 // Read and Display blog entries
 fetch("Blogpost_Entries.json")
