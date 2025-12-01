@@ -30,11 +30,13 @@
                 <a class="current"  href="Lab10_Blog.html"> Blog</a>
             </div>
             <div class="nav-right"> <!-- trying to make it on the rightside-->
-                <div class="dropdown"> <!-- Login dropdown-->
+                <!-- LOGIN -->
+                <div class="dropdown"> 
                     <button class="dropbtn"> 
                         <i class="fas fa-key"> </i>  Login</button>
                     <div class="dropdown-content">
                         <a href="Login.php"> Login </a>
+                        <!-- DARK MODE (opt2) -->
                         <button onclick="DarkMode()"> Change Theme</button>
                         
                     </div>
@@ -51,21 +53,22 @@
 
             <!-- MAIN SECTION -->
             <div class="Part2">
-                <div class="Main">
+                <article class="Main">
                     <h3>Christmas Cookies</h3>
                     <h6> Nov 20, 2025</h6>
                     <p> Lorem ipsum dolor sit amet consectetur adipiscing elit. Quisque faucibus ex sapien vitae pellentesque sem placerat. In id cursus mi pretium tellus
-                        duis convallis. Tempus leo eu aenean sed diam urna tempor. Pulvinar vivamus fringilla lacus nec metus bibendum egestas. Iaculis massa nisl malesuada
-                        lacinia integer nunc posuere. Ut hendrerit semper vel class aptent taciti sociosqu. Ad litora torquent per conubia nostra inceptos himenaeos. <br>
-                   
+                        duis convallis. Tempus leo eu aenean sed diam urna tempor. Pulvinar vivamus fringilla lacus nec metus bibendum <span class="dots"> ... </span> <span class="more">egestas. Iaculis massa nisl malesuada
+                        lacinia integer nunc posuere. Ut hendrerit semper vel class aptent taciti sociosqu. Ad litora torquent per conubia nostra inceptos himenaeos. </span>
+                    </p>
+                    <button onclick="More_or_Less()" class="ML_Btn"> Read more <i class="fas fa-chevron-down"></i> </button>
                     <div id="Blog_Container"></div>
                     <script src="Blog_JavaScript.js"> </script>  
                          
-                </div>
+                </article>
 
                 <!-- ASIDE SECTION //list of all post -->
                 <div class="Aside">
-                    <div class="About">
+                    <div class="About" style="color: black;">
                         <p> Hi, my name is Natalya!</p>
                         <p> Ive collected a lot of yummy recpies over the years and now is the time to share them</p>
                         <h4>Other Posts</h4>
@@ -79,15 +82,11 @@
                 </div>
             </div>
             <p> test test tester</p>
-            <!-- LOGIN -->
-
             <!-- DELETE POST -->
 
             <!-- ADD POST -->
 
             <!-- READ MORE/HIDE (opt1) -->
-
-            <!-- DARK MODE (opt2) -->
 
             <!-- AUTOSAVE (opt3) -->
 

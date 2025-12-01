@@ -1,6 +1,26 @@
+//Darkmode maker
 function DarkMode(){
     var element = document.body;
     element.classList.toggle("dark-mode");
+}
+
+//Read more/less
+function More_or_Less(){
+    var dots = document.getElementsByClassName("dots");
+    var moreText = document.getElementsByClassName("more");
+    var btnText = document.getElementsByClassName("ML_Btn");
+
+    if (dots.style.display === "none") {
+        dots.style.display = "inline";
+        btnText.innerHTML = "Read more <i class=fas fa-chevron-down></i>";
+        moreText.style.display = "none";
+    } 
+    else {
+        dots.style.display = "none";
+        btnText.innerHTML = "Read less <i class=fas fa-chevron-up></i> ";
+        moreText.style.display = "inline";
+    
+    }
 }
 
 // Read and Display blog entries

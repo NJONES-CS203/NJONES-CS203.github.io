@@ -1,5 +1,7 @@
 /* STYLING FOR MY BLOG*/
 
+/* Read more */
+#more {display:none;}
 
 /* Making the hero section pretty */
 div.Hero_pic{
@@ -52,11 +54,11 @@ div.Hero_pic{
 /* Dark mode activate!! */
 body{
     padding: 0px;
-    background-color: white;
+    background-color: ghostwhite;
   color: black;
 }
 
 .dark-mode {
-  background-color: black;
-  color: gainsboro;
+  background-color: rgba(0, 0, 0, 0.795);
+  color: whitesmoke;
 }
