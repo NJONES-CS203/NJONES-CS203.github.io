@@ -1,3 +1,8 @@
+function DarkMode(){
+    var element = document.body;
+    element.classList.toggle("dark-mode");
+}
+
 // Read and Display blog entries
 fetch("Blogpost_Entries.json")
   .then(response => response.json())

@@ -1,18 +1,33 @@
 /* LINKS */
-a:link{
+/* a:link{
     color: blue;
     text-decoration: none;
 }
-a:visited{
-    color: azure;
-    text-decoration: none;
-}
+
 a:hover{
     color: orchid;
     text-decoration: none;
 }
 a:active{
     color: green;
+    text-decoration: none;
+} */
+
+.body_wrapper{
+    box-sizing: border-box;
+    min-height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+html, body {
+    box-sizing: border-box;
+    height: 100%;
+    margin: 0px
+}
+
+ a:visited{
+    color: azure;
     text-decoration: none;
 }
 /* NAVIGATION MENU */
@@ -43,7 +58,6 @@ nav a.current{
 }
 /* Wrap dropdown items */
 .dropdown {
-    /* float: left; */
     overflow: visible;
     position: relative; 
 }
@@ -123,14 +137,3 @@ nav a.current{
     align-items: center;
 }
 
-.body_wrapper{
-    box-sizing: border-box;
-    min-height: 100%;
-    display: flex;
-    flex-direction: column;
-}
-
-html, body {
-    box-sizing: border-box;
-    height: 100%;
-}

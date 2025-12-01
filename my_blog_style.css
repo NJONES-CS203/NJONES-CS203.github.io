@@ -48,3 +48,15 @@ div.Hero_pic{
     position: relative;
     padding: 2.5%;
 }
+
+/* Dark mode activate!! */
+body{
+    padding: 0px;
+    background-color: white;
+  color: black;
+}
+
+.dark-mode {
+  background-color: black;
+  color: gainsboro;
+}
