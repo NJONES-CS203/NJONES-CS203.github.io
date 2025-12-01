@@ -1,12 +1,11 @@
 /* STYLING FOR MY BLOG*/
 
+
 /* Making the hero section pretty */
 div.Hero_pic{
     background-image: url('Images/IMG_6323.jpeg');
-    
-    height: 70%;
 
-    background-repeat: no-repeat;
+    background-repeat: no-repeat; /*this part is from the MY ArtisticSelf Lab(s)*/
     background-size: cover;
     background-position: center;
     position: relative;
@@ -30,4 +29,22 @@ div.Hero_pic{
     font-size: 2rem;
     margin-top: 10px;
     color: moccasin;
+}
+
+.Part2{
+    display:flex;
+    justify-content: space-between;
+}
+
+.Main{
+    /* background-color: ghostwhite; */
+    width: 60%;
+    padding: 2.5%;
+}
+
+.Aside{
+    background-color: thistle;
+    width: 20%;
+    position: relative;
+    padding: 2.5%;
 }

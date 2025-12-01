@@ -18,12 +18,12 @@ a:active{
 /* NAVIGATION MENU */
 nav{
     overflow: visible;
-    background-color: midnightblue;
+    background-color: indigo;
     color:aliceblue;
     display: flex;
     align-items: center;
 }
-nav a{
+.nav-left a{
     /* float: left; */
     text-align: center;
     padding: 14px 16px;
@@ -37,6 +37,9 @@ nav a:hover{
 nav a.current{
     background-color: blueviolet;
     color: black;
+}
+.nav-right{
+    margin-left: auto;
 }
 /* Wrap dropdown items */
 .dropdown {
@@ -62,7 +65,7 @@ nav a.current{
 .dropdown-content {
     display: none;
     position: absolute;
-    background-color: midnightblue;
+    background-color: indigo;
     min-width: 160px;
     box-shadow: 0px 8px 16px rgba(0,0,0,0.3);
     z-index: 1;
@@ -96,7 +99,7 @@ nav a.current{
 }
 /* Track */
 ::-webkit-scrollbar-track {
-  background: lavender; 
+  background: white; 
 }
 /* Handle */
 ::-webkit-scrollbar-thumb {

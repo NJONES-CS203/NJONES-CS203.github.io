@@ -7,12 +7,16 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="my_style.css">
         <link rel="stylesheet" href="my_blog_style.css">
+        <!-- Font Awesome for icons -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
         
 </head>
 <body> 
     <nav class="nav">
-            <a href="index.html"> Home</a>
-            <div class="dropdown">
+            <div class="nav-left">
+                <a href="index.html"> Home</a>
+            </div>
+            <div class="dropdown"> <!-- previous labs dropdown-->
                 <button class="dropbtn"> Previous Labs</button>
                 <div class="dropdown-content">
                     <a href="vacation01.html"> Vacation</a> 
@@ -22,7 +26,20 @@
                     <a href="to-do.html"> To Do List</a>
                 </div>
             </div>
-            <a class="current"  href="Lab10_Blog.html"> Blog</a>
+            <div class="nav-left">
+                <a class="current"  href="Lab10_Blog.html"> Blog</a>
+            </div>
+            <div class="nav-right"> <!-- trying to make it on the rightside-->
+                <div class="dropdown"> <!-- Login dropdown-->
+                    <button class="dropbtn"> 
+                        <i class="fas fa-key"> </i>  Login</button>
+                    <div class="dropdown-content">
+                        <a href="Login.php"> Login </a>
+                        <!-- <button class="change_mode"> Change Theme</button> -->
+                        
+                    </div>
+                </div>
+            </div>
     </nav>
 
         <div class="body_wrapper">
@@ -33,28 +50,54 @@
             </div>
 
             <!-- MAIN SECTION -->
+            <div class="Part2">
+                <div class="Main">
+                    <h3>Christmas Cookies</h3>
+                    <h6> Nov 20, 2025</h6>
+                    <p> Lorem ipsum dolor sit amet consectetur adipiscing elit. Quisque faucibus ex sapien vitae pellentesque sem placerat. In id cursus mi pretium tellus
+                        duis convallis. Tempus leo eu aenean sed diam urna tempor. Pulvinar vivamus fringilla lacus nec metus bibendum egestas. Iaculis massa nisl malesuada
+                        lacinia integer nunc posuere. Ut hendrerit semper vel class aptent taciti sociosqu. Ad litora torquent per conubia nostra inceptos himenaeos. <br>
+                   
+                    <div id="Blog_Container"></div>
+                    <script src="Blog_JavaScript.js"> </script>  
+                         
+                </div>
 
-            <!-- ASIDE SECTION //list of all post -->
-
+                <!-- ASIDE SECTION //list of all post -->
+                <div class="Aside">
+                    <div class="About">
+                        <p> Hi, my name is Natalya!</p>
+                        <p> Ive collected a lot of yummy recpies over the years and now is the time to share them</p>
+                        <h4>Other Posts</h4>
+                        <div class="Older_post">
+                                <li> test1</li>
+                                <li> test1</li>
+                                <li> test1</li>
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <p> test test tester</p>
             <!-- LOGIN -->
 
             <!-- DELETE POST -->
 
             <!-- ADD POST -->
 
-            <!-- BOOTSTRAP/TAILWIND //decorating (opt1) -->
+            <!-- READ MORE/HIDE (opt1) -->
 
-            <!-- READ MORE/HIDE (opt2) -->
+            <!-- DARK MODE (opt2) -->
 
-            <!-- DARK MODE (opt3) -->
+            <!-- AUTOSAVE (opt3) -->
 
-            <!-- AUTOSAVE (opt4) -->
+            <!-- EDIT POST (opt4) -->
 
-            <!-- EDIT POST (opt5) -->
+            <!-- COMMENTS (if able) -->
 
-            <!-- FILTERING (opt6) -->
+            <!-- SORTING (opt5) -->
 
-            <!-- ANIMATION (opt7) -->
+            <!-- ANIMATION (opt6) -->
 
 
         </div>
