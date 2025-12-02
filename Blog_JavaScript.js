@@ -66,4 +66,6 @@ fetch("Blogpost_Entries.json")
   })
   .catch(err => {
     console.error("Error loading blogposts.json:", err);
-  });
+  }
+);
+

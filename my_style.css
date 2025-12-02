@@ -1,5 +1,5 @@
 /* LINKS */
-/* a:link{
+a:link{
     color: blue;
     text-decoration: none;
 }
@@ -11,7 +11,7 @@ a:hover{
 a:active{
     color: green;
     text-decoration: none;
-} */
+}
 
 .body_wrapper{
     box-sizing: border-box;
