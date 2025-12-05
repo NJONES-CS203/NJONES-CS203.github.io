@@ -1,18 +1,18 @@
-[
-  {
-    "date": "2025-10-20",
-    "title": "My First Blog Post",
-    "paragraphs": [
-      "This is the first paragraph of my blog.",
-      "Here's another paragraph."
-    ]
-  },
-  {
-    "date": "2025-11-21",
-    "title": "Another Post",
-    "paragraphs": [
-      "Second post starts here.",
-      "More content here."
-    ]
-  }
-]
+{
+    "Post1":{
+        "date": "2025-01-10",
+        "title": "My First Blog Post",
+        "paragraphs": [
+            " Christmas is coming and the urge to make yummy treats is getting stronger. Some of my favourite gifts to make are little cookie boxes. Filled with shortbreads, orange loaf, sugar cookies, molasses cookies and gingerbread men. These have all the sentimental flavours you assoicate with Christmas and are easy to make. Even more fun to be making with friends!"
+        ]
+    },
+    "Post2":{
+        "date": "2025-21-11",
+        "title": "Take two!",
+        "paragraphs": [
+            "This is the first paragraph.",
+            "Our house is old enough to have a wood stove which gives a comfy warmness throughout the whole home. It also reminds me of the time in the summer when I had to tend to the fire inorder to feed the kids at camp. One of their favourites to make and take charge in was the flatbreads with the soup.  ",
+            "This is another paragraph."
+        ]
+    }
+}

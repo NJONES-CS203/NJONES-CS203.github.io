@@ -1,3 +1,6 @@
+//MAke sure all the html loads in first
+document.addEventListener("DOMContentLoaded", () => {
+
 //Darkmode maker
 function DarkMode(){
     var element = document.body;
@@ -5,67 +8,62 @@ function DarkMode(){
 }
 
 //Read more/less
+// I want to set the show more/less button automatically instead of putting in the spans manually
 
-document.addEventListener("click", function(e) {
-  const btn = e.target.closest(".Read-Toggle");
-  if (!btn) return;
+const charLimit = 148;
+ document.querySelectorAll(".Post").forEach(post => {
+      const wrapper = post.querySelector(".postTextWrapper");
+      const btn = post.querySelector(".read-toggle");
+      if (!wrapper || !btn) return;
 
-  const post = btn.closest(".Post");
-  if (!post) return;
+      const paragraphs = Array.from(wrapper.querySelectorAll(".postText"));
 
-  const dots = post.querySelector(".Dots");
-  const moreText = post.querySelector(".More");
-  if (!dots || !moreText) return;
+      let visibleText = "";
+      let hiddenText = "";
+      let charCount = 0;
 
-  const isHidden = window.getComputedStyle(dots).display === "none";
+      paragraphs.forEach(p => {
+          const text = p.textContent;
 
-  if (isHidden) {
-    dots.style.display = "inline";
-    moreText.style.display = "none";
-    btn.innerHTML = 'Read more <i class="fa-solid fa-chevron-down"></i>';
-  } else {
-    dots.style.display = "none";
-    moreText.style.display = "inline";
-    btn.innerHTML = 'Read less <i class="fa-solid fa-chevron-up"></i>';
-  }
-});
+          if (charCount + text.length <= charLimit) {
+              visibleText += text + " "; // add space instead of new line
+          } else if (charCount < charLimit) {
+              const splitIndex = charLimit - charCount;
+              visibleText += text.slice(0, splitIndex) + '<span class="dots">...</span> ';
+              hiddenText += text.slice(splitIndex) + " ";
+          } else {
+              hiddenText += text + " ";
+          }
 
-
-// Read and Display blog entries
-fetch("Blogpost_Entries.json")
-  .then(response => response.json())
-  .then(posts => {
-    const container = document.getElementById("blog-container");
-
-    posts.forEach(post => {
-      // Create a wrapper
-      const postDiv = document.createElement("div");
-      postDiv.classList.add("post");
-
-      // Add title
-      const title = document.createElement("h2");
-      title.textContent = post.title;
-      postDiv.appendChild(title);
-
-      // Add date
-      const date = document.createElement("p");
-      date.textContent = post.date;
-      date.classList.add("date");
-      postDiv.appendChild(date);
-
-      // Add paragraphs
-      post.paragraphs.forEach(text => {
-        const p = document.createElement("p");
-        p.textContent = text;
-        postDiv.appendChild(p);
+          charCount += text.length;
       });
 
-      // Add the post to the container
-      container.appendChild(postDiv);
-    });
-  })
-  .catch(err => {
-    console.error("Error loading blogposts.json:", err);
-  }
-);
+      if (hiddenText.length > 0) {
+          wrapper.innerHTML = `
+              <span class="visible-text">${visibleText}</span>
+              <span class="more" style="display:none">${hiddenText}</span>
+          `;
 
+          btn.style.display = "inline-block";
+          btn.addEventListener("click", () => {
+              const dots = wrapper.querySelector("span.dots");
+              const more = wrapper.querySelector(".more");
+              if (!dots || !more) return;
+
+              if (dots.style.display === "none") {
+                  dots.style.display = "inline";
+                  more.style.display = "none";
+                  btn.innerHTML = 'Read more <i class="fa-solid fa-chevron-down"></i>';
+              } else {
+                  dots.style.display = "none";
+                  more.style.display = "inline";
+                  btn.innerHTML = 'Read less <i class="fa-solid fa-chevron-up"></i>';
+              }
+          });
+      } else {
+          btn.style.display = "none";
+      }
+  });
+
+
+});

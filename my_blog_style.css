@@ -1,5 +1,32 @@
 /* STYLING FOR MY BLOG*/
 
+/* Login page */
+.Form{
+  border-radius: 200px;
+  border: 2px solid purple;
+  /* padding: 20px; */
+  width:500px;
+  height:250px;
+}
+h2, label{
+  padding-left:40px;
+  padding-top: 20px;
+}
+/* Error message */
+.Error{
+  border-radius: 45%;
+  background-color: lightyellow;
+  text-align: center;
+  color: red;
+  margin: 0.5em;
+  padding: 20px;
+  width: 170px;
+  height: 20px;
+}
+
+/* SMooth sailing */
+html{scroll-behavior: smooth;}
+
 /* Read more */
 #more {display:none;}
 
