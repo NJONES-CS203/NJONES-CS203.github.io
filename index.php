@@ -1,4 +1,7 @@
 <?php 
+    session_start();
+    $logged_in = !empty($_SESSION['logged_in']) && $_SESSION['logged_in'] === true;
+
     ini_set('display_errors', 1);
     ini_set('display_startup_errors', 1);
     error_reporting(E_ALL); 
@@ -14,8 +17,9 @@
         <meta name="author" content="Natalya Jones">
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="my_style.css">
         <link rel="stylesheet" href="my_blog_style.css">
+        <link rel="stylesheet" href="my_style.css">
+        
         <!-- Font Awesome for icons -->
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
         
@@ -45,6 +49,7 @@
                         <i class="fas fa-key"> </i>  Login</button>
                     <div class="dropdown-content">
                         <a href="Login.php"> Login </a>
+                        <a href="Logout.php"> Logout </a>
                         <!-- DARK MODE (opt2) -->
                         <button onclick="DarkMode()"> Change Theme</button>
                         
@@ -64,6 +69,12 @@
             <!-- MAIN SECTION -->
             <div class="Part2">
                 <div class="Main">
+                    <!-- ADD POST -->
+                    <?php if($logged_in): ?>
+                        <div class="add-post-container">
+                            <a href="Add_Post.php" class="add-post-button">Add New Post</a>
+                        </div>
+                    <?php endif; ?>
                     <?php //Loading each blogpost from the json file
                         foreach ($posts as $id => $post) {
                             echo "<article class='Post' id='$id'>";
@@ -107,10 +118,14 @@
                     </div>
                 </div>
             </div>
+            
+
+                <!-- Example of conditional display -->
+                <?php if(!empty($_SESSION['logged_in']) && $_SESSION['logged_in'] === true): ?>
+                    <button class="add-post">Add New Post</button>
+                <?php endif; ?>
             <p> test test tester</p>
             <!-- DELETE POST -->
-
-            <!-- ADD POST -->
             
             <!-- AUTOSAVE (opt3) -->
 

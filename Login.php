@@ -35,14 +35,16 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 </head>
 <body>
     <div class="body_wrapper">
-        <div class="Form">
-            <h2>Login</h2>
-            <?php if($error) echo "<p>$error</p>"; ?>
-            <form method="POST">
-                <label>Password:</label>
-                <input type="password" name="password">
-                <button type="submit">Login</button>
-            </form>
+        <div class="Hero_pic">
+            <div class="Form">
+                <h2>Login</h2>
+                <?php if($error) echo "<p>$error</p>"; ?>
+                <form method="POST">
+                    <label>Password:</label>
+                    <input type="password" name="password">
+                    <button type="submit">Login</button>
+                </form>
+            </div>
         </div>
     </div>
 </body>

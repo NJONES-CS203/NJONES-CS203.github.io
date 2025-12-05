@@ -1,24 +1,45 @@
 /* STYLING FOR MY BLOG*/
 
+/* Making all my buttons pretty */
+button{
+  border-radius: 12px;
+  background-color: snow;
+  border-color: snow;
+}
+
+/* Forms */
+div.TranspBox {
+  margin: 30px;
+  background-color: rgba(255, 255, 255, 0.6);
+  border: 1px solid black;
+}
+
+div.TranspBox p {
+  margin: 5%;
+  font-weight: bold;
+  color: #000000;
+}
 /* Login page */
+
 .Form{
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 10%;
   border-radius: 200px;
-  border: 2px solid purple;
+  border: 12px solid purple;
+  background-color: ghostwhite;
   /* padding: 20px; */
   width:500px;
   height:250px;
 }
-h2, label{
-  padding-left:40px;
-  padding-top: 20px;
-}
+
 /* Error message */
 .Error{
   border-radius: 45%;
   background-color: lightyellow;
   text-align: center;
-  color: red;
-  margin: 0.5em;
+  margin-left: auto;
+  margin-right: auto;
   padding: 20px;
   width: 170px;
   height: 20px;

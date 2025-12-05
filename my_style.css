@@ -51,7 +51,7 @@ nav a:hover{
 }
 nav a.current{
     background-color: blueviolet;
-    color: black;
+    color: azure;
 }
 .nav-right{
     margin-left: auto;
@@ -63,6 +63,7 @@ nav a.current{
 }
 /* The button that triggers dropdown */
 .dropdown .dropbtn {
+    border-radius: 0px;
     font-size: 17px;
     border: none;
     outline: none;
