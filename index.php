@@ -1,7 +1,8 @@
 <?php 
+    //start php so everything works
     session_start();
     $logged_in = !empty($_SESSION['logged_in']) && $_SESSION['logged_in'] === true;
-
+    //Check for errors and displays
     ini_set('display_errors', 1);
     ini_set('display_startup_errors', 1);
     error_reporting(E_ALL); 
@@ -70,11 +71,6 @@
             <div class="Part2">
                 <div class="Main">
                     <!-- ADD POST -->
-                    <?php if($logged_in): ?>
-                        <div class="add-post-container">
-                            <a href="Add_Post.php" class="add-post-button">Add New Post</a>
-                        </div>
-                    <?php endif; ?>
                     <?php //Loading each blogpost from the json file
                         foreach ($posts as $id => $post) {
                             echo "<article class='Post' id='$id'>";
@@ -97,6 +93,11 @@
                             echo "</article>";
                         }
                     ?>
+                    <?php if($logged_in): ?>
+                        <div class="add-post-container">
+                            <a href="Add_Post.php" class="add-post-button">Add New Post</a>
+                        </div>
+                    <?php endif; ?>
                 </div>
                                     
                 <!-- ASIDE SECTION //list of all post -->
@@ -110,20 +111,21 @@
                         <ul class="Older_post">
                             <?php 
                                 foreach ($posts as $id => $post) {
-                                echo "<li><a href='#$id'>" . htmlspecialchars($post['title']) . "</a></li>";
-                            }
+                                    echo "<li><a href='#$id'>" . htmlspecialchars($post['title']) . "</a>";
+
+                                    if ($logged_in) {
+                                        echo " <button class='delete-post' data-post-id='$id'>
+                                                <i class='far fa-trash-alt'></i>
+                                            </button>";
+                                    }
+
+                                    echo "</li>";
+                                }
                             ?>
-                            
-                    </ul>
+                        </ul>
                     </div>
                 </div>
             </div>
-            
-
-                <!-- Example of conditional display -->
-                <?php if(!empty($_SESSION['logged_in']) && $_SESSION['logged_in'] === true): ?>
-                    <button class="add-post">Add New Post</button>
-                <?php endif; ?>
             <p> test test tester</p>
             <!-- DELETE POST -->
             

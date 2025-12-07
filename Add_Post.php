@@ -1,30 +1,66 @@
 <?php
+//Check for errors and displays
+    ini_set('display_errors', 1);
+    ini_set('display_startup_errors', 1);
+    error_reporting(E_ALL); 
+
+//shows if logged in
 session_start();
 if(empty($_SESSION['logged_in'])) {
     header("Location: Login.php");
     exit;
 }
 
-//On submit
-if($_SERVER['REQUEST_METHOD'] === 'POST'){
-    $title = htmlentities($_POST['title']);
+$jsonFile = 'Blogpost_Entries.json';
+
+//Create if not found
+if (!file_exists($jsonFile)) {
+    file_put_contents($jsonFile, json_encode([], JSON_PRETTY_PRINT));
+}
+
+//Read and decode safely
+$jsonRaw = file_get_contents($jsonFile);
+$posts = json_decode($jsonRaw, true);
+
+//If corrupted, reset 
+if (!is_array($posts)) {
+    $posts = [];
+}
+
+//HANDLE FORM SUBMISSION
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+
+    //Protect against HTML injection
+    $title = trim($_POST['title']);
     $date = date("Y-m-d");
-    $paragraphs = array_map('htmlentities', explode("\n", $_POST['content']));
 
-    //Load existing
-    $jsonFile = 'Blogpost_Entries.json';
-    $posts = json_decode(file_get_contents($jsonFile), true) ?? [];
+    //Convert textarea into paragraphs
+    $paragraphsRaw = explode("\n", $_POST['content']);
 
-    //Use new ID for each post
+    //Clean & filter empty lines
+    $paragraphs = array_values(array_filter(array_map('trim', $paragraphsRaw)));
+
+    //Escape HTML
+    $paragraphs = array_map('htmlspecialchars', $paragraphs);
+
+    //Generate unique ID
     $id = "post_" . time();
+
+    //Build post array
     $posts[$id] = [
-        'title' => $title,
-        'date' => $date,
+        'title'      => htmlspecialchars($title),
+        'date'       => $date,
         'paragraphs' => $paragraphs
     ];
 
-    file_put_contents($jsonFile, json_encode($posts, JSON_PRETTY_PRINT));
+    //Save JSON
+    file_put_contents(
+        $jsonFile,
+        json_encode($posts, JSON_PRETTY_PRINT),
+        LOCK_EX
+    );
 
+    //Go back home
     header("Location: index.php");
     exit;
 }
@@ -33,7 +69,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Add New Post</title>
+    <title>Add Post</title>
         <meta name="author" content="Natalya Jones">
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -52,7 +88,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
                 <input type="text" name="title" required><br><br>
 
                 <label><b>Content (use line breaks for paragraphs):<b></label><br>
-                <textarea name="content" rows="10" cols="50" required></textarea><br><br>
+                <textarea name="content" rows="15" cols="70" required></textarea><br><br>
 
                 <button type="submit">Add Post</button>
             </form>

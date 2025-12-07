@@ -7,6 +7,13 @@ button{
   border-color: snow;
 }
 
+.delete-post{
+  color: red;
+  background-color: transparent;
+  border-color: transparent;
+
+}
+
 /* Forms */
 div.TranspBox {
   margin: 30px;
@@ -150,7 +157,7 @@ div.Hero_pic{
 
 .Aside{
     background-color: thistle;
-    width: 20%;
+    width: 30%;
     position: relative;
     padding: 2.5%;
 }

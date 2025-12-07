@@ -64,6 +64,29 @@ const charLimit = 148;
           btn.style.display = "none";
       }
   });
+});
 
+//Delete
+document.addEventListener("DOMContentLoaded", () => {
+    document.querySelectorAll(".delete-post").forEach(btn => {
+        btn.addEventListener("click", () => {
+            const postId = btn.dataset.postId;
+            if(confirm("Are you sure you want to delete this post? 🤔")) {
+                // Remove from page
+                const postEl = document.getElementById(postId);
+                if(postEl) postEl.remove();
+                // Send request to PHP to remove from JSON
+                fetch("Delete.php", {
+                    method: "POST",
+                    headers: {'Content-Type':'application/x-www-form-urlencoded'},
+                    body: "id=" + encodeURIComponent(postId)
+                }).then(res => res.text())
+                  .then(data => console.log(data));
+            }
+        });
+    });
 
 });
+
+
+//Add
