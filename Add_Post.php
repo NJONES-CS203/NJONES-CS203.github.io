@@ -91,6 +91,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 <textarea name="content" rows="15" cols="70" required></textarea><br><br>
 
                 <button type="submit">Add Post</button>
+                <script src="Blog_JavaScript.js"></script>
             </form>
         </div>
     </div>

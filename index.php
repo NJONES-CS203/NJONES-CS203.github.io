@@ -10,6 +10,8 @@
     $json = file_get_contents('./Blogpost_Entries.json');
 
     $posts = json_decode($json, true);
+
+    
 ?>
 <!DOCTYPE html>
 <html>
@@ -74,28 +76,27 @@
                     <?php //Loading each blogpost from the json file
                         foreach ($posts as $id => $post) {
                             echo "<article class='Post' id='$id'>";
-                            echo "<h1>" . htmlspecialchars($post['title']) . "</h1>";
-                            echo "<p><em>" . htmlspecialchars($post['date']) . "</em></p>";
-
-                            echo "<div class='postTextWrapper'>";
+                            echo "<h1 class='post-title'>" . htmlspecialchars($post['title']) . "</h1>";
+                            echo "<p class='post-date'><em>" . htmlspecialchars($post['date']) . "</em></p>";
+                            echo "<div class='postTextWrapper post-body'>";
                             foreach ($post['paragraphs'] as $para) {
                                 echo "<p class='postText'>" . htmlspecialchars($para) . "</p>";
                             }
                             echo "</div>";
-
+                            if ($logged_in) {
+                                echo "<button class='edit-btn' onclick=\"editPost('$id')\">Edit</button>";
+                            }
                             echo "
                                 <button class='read-toggle'>
                                     <span class='btn-text'>Read more</span>
                                     <i class='fa-solid fa-chevron-down toggle-icon'></i>
-                                </button>
-                            ";
-
+                                </button>";
                             echo "</article>";
                         }
                     ?>
                     <?php if($logged_in): ?>
                         <div class="add-post-container">
-                            <a href="Add_Post.php" class="add-post-button">Add New Post</a>
+                            <a href="Add_Post.php" class="add-post-button">Add New Post <i class="fas fa-plus"></i></a>
                         </div>
                     <?php endif; ?>
                 </div>
@@ -111,14 +112,15 @@
                         <ul class="Older_post">
                             <?php 
                                 foreach ($posts as $id => $post) {
+                                    //<!-- EDIT POST (opt4) -->
+                                    //<!-- DELETE POST -->
                                     echo "<li><a href='#$id'>" . htmlspecialchars($post['title']) . "</a>";
-
                                     if ($logged_in) {
+                                        // echo "<button class='edit-btn' onclick=\"editPost('$id')\">Edit</button>";
                                         echo " <button class='delete-post' data-post-id='$id'>
                                                 <i class='far fa-trash-alt'></i>
                                             </button>";
                                     }
-
                                     echo "</li>";
                                 }
                             ?>
@@ -127,23 +129,15 @@
                 </div>
             </div>
             <p> test test tester</p>
-            <!-- DELETE POST -->
-            
-            <!-- AUTOSAVE (opt3) -->
-
-            <!-- EDIT POST (opt4) -->
-
-            <!-- COMMENTS (if able) -->
 
             <!-- SORTING (opt5) -->
-
-            
-
-            
+  
         </div>
     <div class="Footer">
         <p> Natalya's website for CSL203 </p>
     </div>
-    <script src="Blog_JavaScript.js?v=3"> </script>  
+    <!--this makes sure that the most current version of my JS file is the one being used
+    I had some issues earlier where it wasnt using the right JS file so I'm keeping this in to scare it -->
+    <script src="Blog_JavaScript.js?v=5"> </script>  
 </body>
 </html>

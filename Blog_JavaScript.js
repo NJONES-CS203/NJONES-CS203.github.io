@@ -9,7 +9,6 @@ function DarkMode(){
 
 //Read more/less
 // I want to set the show more/less button automatically instead of putting in the spans manually
-
 const charLimit = 148;
  document.querySelectorAll(".Post").forEach(post => {
       const wrapper = post.querySelector(".postTextWrapper");
@@ -64,29 +63,87 @@ const charLimit = 148;
           btn.style.display = "none";
       }
   });
-});
 
 //Delete
-document.addEventListener("DOMContentLoaded", () => {
-    document.querySelectorAll(".delete-post").forEach(btn => {
-        btn.addEventListener("click", () => {
-            const postId = btn.dataset.postId;
-            if(confirm("Are you sure you want to delete this post? 🤔")) {
-                // Remove from page
-                const postEl = document.getElementById(postId);
-                if(postEl) postEl.remove();
-                // Send request to PHP to remove from JSON
-                fetch("Delete.php", {
-                    method: "POST",
-                    headers: {'Content-Type':'application/x-www-form-urlencoded'},
-                    body: "id=" + encodeURIComponent(postId)
-                }).then(res => res.text())
-                  .then(data => console.log(data));
-            }
-        });
+document.querySelectorAll(".delete-post").forEach(btn => {
+    btn.addEventListener("click", () => {
+        const postId = btn.dataset.postId;
+
+        if (!confirm("Are you sure you want to delete this post?")) return;
+
+        // Remove the article in the main section
+        const article = document.getElementById(postId);
+        if (article) article.remove();
+
+        // Remove the link in the sidebar
+        const sidebarLink = document.querySelector(`.Older_post button[data-post-id='${postId}']`)?.parentElement;
+        if (sidebarLink) sidebarLink.remove();
+
+        // Send AJAX request to delete JSON entry
+        fetch("Delete.php", {
+            method: "POST",
+            headers: { "Content-Type": "application/x-www-form-urlencoded" },
+            body: `postId=${encodeURIComponent(postId)}`
+        })
+        .then(res => res.text())
+        .then(response => {
+            console.log(response); // Optional: confirm deletion
+        })
+        .catch(err => console.error("Error deleting post:", err));
     });
+});
+
+//Edit button
+window.editPost = function(postId) {
+    const post = document.getElementById(postId);
+    const title = post.querySelector(".post-title");
+    const body = post.querySelector(".post-body");
+    const button = post.querySelector(".edit-btn");
+
+    if (!post || !title || !body || !button) {
+        console.error("Cannot find elements for post:", postId);
+        return;
+    }
+
+    if (button.innerText === "Edit") {
+        title.contentEditable = "true";
+        body.contentEditable = "true";
+        title.style.border = "1px dashed #aaa";
+        body.style.border = "1px dashed #aaa";
+        button.innerText = "Save";
+    } else {
+        title.contentEditable = "false";
+        body.contentEditable = "false";
+        title.style.border = "none";
+        body.style.border = "none";
+        button.innerText = "Edit";
+    }
+};
+
+// <!-- AUTOSAVE (opt3) -->
+const form = document.querySelector("form");
+const textArea = document.querySelector("textarea[name='content']");
+const titleInput = document.querySelector("input[name='title']");
+if(textArea && titleInput){
+textArea.value = localStorage.getItem("draftContent") || "";
+titleInput.value = localStorage.getItem("draftTitle") || "";
+
+// Auto-save every 5 seconds
+setInterval(() => {
+    localStorage.setItem("draftContent", textArea.value);
+    localStorage.setItem("draftTitle", titleInput.value);
+    console.log("Draft saved!");
+}, 5000);
+
+};
+// Remove draft on submit
+if (form) {
+    form.addEventListener("submit", () => {
+        localStorage.removeItem("draftContent");
+        localStorage.removeItem("draftTitle");
+        console.log("Draft cleared!");
+    });
+}
 
 });
 
-
-//Add
